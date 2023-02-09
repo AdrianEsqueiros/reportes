@@ -35,15 +35,15 @@
             >
               <thead>
                 <tr>
-                  <th>id</th>
-                  <th>user</th>
-                  <th>district</th>
-                  <th>year</th>
-                  <th>category</th>
-                  <th>rate</th>
-                  <th>comments</th>
-                  <th>photos</th>
-                  <th>location</th>
+                  <th>Id</th>
+                  <th>Usuario</th>
+                  <th>Distrito</th>
+                  <th>Año</th>
+                  <th>Categoria</th>
+                  <th>Calificacion</th>
+                  <th>Comentario</th>
+                  <th>Foto</th>
+                  <th>Ubicacion Geografica</th>
                 </tr>
               </thead>
               <tbody></tbody>
@@ -114,7 +114,7 @@ export default {
               page * 1000000
             }&length=1000000`,
           )
-          data = data.concat(response.data.data)
+          data = response.data.data
 
           let csv = ''
 
@@ -126,7 +126,7 @@ export default {
           const blob = new Blob([csv], { type: 'text/csv' })
           const link = document.createElement('a')
           link.href = URL.createObjectURL(blob)
-          link.download = `report${page + 1}.csv`
+          link.download = `REPORTE-${page + 1}.csv`
           link.click()
           this.loading = false
         } catch (error) {
